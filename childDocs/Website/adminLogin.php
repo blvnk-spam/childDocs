@@ -23,5 +23,7 @@
     <h1>childDocs</h1>
     <body bgcolor="FBB917">
         <div><h2>Succesfully selected admin as user type</h2></div>
+        <!--Add code here to hopeufully poll user for an Employee id, check if ID is in admins list, if is succesful login, else print "Unable to login; Incorrect Credentials top screen--> 
+        <!--Once logged in redirect to adminID=# page--> 
     </body>
 </html>
