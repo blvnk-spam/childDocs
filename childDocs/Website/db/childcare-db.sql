@@ -49,7 +49,7 @@ CREATE TABLE `buildings` (
   `Capacity` int DEFAULT NULL,
   `BuildingVehicleID` int DEFAULT NULL,
   PRIMARY KEY (`Building#`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,7 +75,7 @@ CREATE TABLE `busses` (
   `DriverLicense#` int DEFAULT NULL,
   `BusShift` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`BusID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +98,7 @@ CREATE TABLE `can_edit` (
   `ChildID` int NOT NULL,
   `StaffID_admin` int DEFAULT NULL,
   PRIMARY KEY (`ChildID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +121,7 @@ CREATE TABLE `can_view_child` (
   `ChildID` int NOT NULL,
   `StaffID_teacher` int DEFAULT NULL,
   PRIMARY KEY (`ChildID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -144,7 +144,7 @@ CREATE TABLE `can_view_wp` (
   `WeeklyPlan#` int NOT NULL,
   `StaffID_teacher` int DEFAULT NULL,
   PRIMARY KEY (`WeeklyPlan#`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -170,21 +170,18 @@ CREATE TABLE `child` (
   `Lname` varchar(45) DEFAULT NULL,
   `DOB` date DEFAULT NULL,
   `Bus#` int DEFAULT NULL,
-  `Prescription#` int DEFAULT NULL,
   `GuardianSSN` int DEFAULT NULL,
   `Room#` int DEFAULT NULL,
   `BusShift` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ChildID`),
-  KEY `Prescription#_idx` (`Prescription#`),
   KEY `GuardianSSN_idx` (`GuardianSSN`),
   KEY `Room#_idx` (`Room#`),
   KEY `Bus#_idx` (`Bus#`),
   KEY `BusShift_idx` (`BusShift`),
   CONSTRAINT `Bus#` FOREIGN KEY (`Bus#`) REFERENCES `busses` (`BusID`),
   CONSTRAINT `GuardianSSN` FOREIGN KEY (`GuardianSSN`) REFERENCES `guardians` (`GuardianSSN`),
-  CONSTRAINT `Prescription#` FOREIGN KEY (`Prescription#`) REFERENCES `medications` (`Prescription#`),
   CONSTRAINT `Room` FOREIGN KEY (`Room#`) REFERENCES `rooms` (`Room#`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -208,7 +205,7 @@ CREATE TABLE `drivers` (
   `License#` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `License Level` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`StaffID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,7 +232,7 @@ CREATE TABLE `guardians` (
   `Email` varchar(45) DEFAULT NULL,
   `Phone` bigint DEFAULT NULL,
   PRIMARY KEY (`GuardianSSN`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -262,7 +259,7 @@ CREATE TABLE `medications` (
   PRIMARY KEY (`Prescription#`),
   UNIQUE KEY `ChildID_UNIQUE` (`ChildID`),
   CONSTRAINT `ChildID` FOREIGN KEY (`ChildID`) REFERENCES `child` (`ChildID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -289,7 +286,7 @@ CREATE TABLE `rooms` (
   PRIMARY KEY (`Room#`),
   KEY `Building#_idx` (`Building#`),
   CONSTRAINT `Building#` FOREIGN KEY (`Building#`) REFERENCES `buildings` (`Building#`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -319,7 +316,7 @@ CREATE TABLE `staffs` (
   PRIMARY KEY (`StaffID`),
   KEY `Room#_idx` (`Room#`),
   CONSTRAINT `Room#` FOREIGN KEY (`Room#`) REFERENCES `rooms` (`Room#`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -344,7 +341,7 @@ CREATE TABLE `teachers` (
   `Room#` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`StaffID`),
   CONSTRAINT `StaffID` FOREIGN KEY (`StaffID`) REFERENCES `staffs` (`StaffID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -375,7 +372,7 @@ CREATE TABLE `weeklyplans` (
   KEY `PlanAuthor` (`PlanAuthor`),
   KEY `Room_idx` (`Room#`),
   CONSTRAINT `PlanAuthorID` FOREIGN KEY (`PlanAuthorID`) REFERENCES `teachers` (`StaffID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
