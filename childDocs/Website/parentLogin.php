@@ -1,3 +1,7 @@
+<?php
+    include_once (__DIR__ . '/includes/dbh.inc.php');
+?>
+
 <!DOCTYPE html>
 <html lang = "en">
     <head>
@@ -25,5 +29,17 @@
         <div><h2>Succesfully selected parent as user type</h2></div>
         <!--Add code here to hopeufully poll user for an parents SSN, check if SSN is in parents table, if is succesful login, else print "Unable to login; Incorrect Credentials" to screen-->
         <!--Once logged in redirect to parentID=# page--> 
+
+        <?php
+            $sql = "SELECT * FROM userdb;";
+            $result = mysqli_query($conn, $sql);
+            $resultCheck = mysqli_num_rows($result);
+
+            if ($resultCheck > 0){
+                while( $row = mysqli_fetch_assoc($result)){
+                    echo $row['email'] . "<br>";
+                }
+            }
+        ?>
     </body>
 </html>

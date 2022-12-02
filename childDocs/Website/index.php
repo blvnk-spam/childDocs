@@ -38,6 +38,5 @@
                 <button type ="submit" formaction="adminLogin.php"> Admin </button>
             </form>
         </div>
-
     </body>
 </html>
