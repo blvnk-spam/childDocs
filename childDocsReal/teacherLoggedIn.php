@@ -40,6 +40,14 @@
                 if ($resultCheck > 0){
                     while($row = mysqli_fetch_assoc($result)){
                         echo "Welcome " . $row['Fname'] . " " . $row['Mname'] . " " . $row['Lname'] . "<br>";
+                        $sql2 = "SELECT RoomNum FROM teachers WHERE StaffID = '$teacherID';";
+                        $result = mysqli_query($conn, $sql2);
+                        $resultCheck2 = mysqli_num_rows($result2);
+                        if($resultCheck2 > 0){
+                            while($row = mysqli_fetch_assoc($result2)){
+                                echo "Displaying information for classroom " . $row['RoomNum']; 
+                            }
+                        }
                     }
                 }
     

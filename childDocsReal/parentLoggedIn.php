@@ -37,6 +37,15 @@
                     $result = mysqli_query($conn, $sql);
                     $resultCheck = mysqli_num_rows($result);
     
+
+                    echo '<table>
+                        <tr>
+                            <th>ChildID</th>
+                            <th>Name</th>
+                            <th>Bus Number</th>
+                            <th>Bus Driver</th>
+                        </tr>';
+
                     if ($resultCheck > 0){
                         while($row = mysqli_fetch_assoc($result)){
                             echo "Welcome " . $row['Fname'] . " " . $row['Mname'] . " " . $row['Lname'] . "<br><br> Your children are as follows: <br>";
@@ -46,11 +55,7 @@
                             $resultCheck2 = mysqli_num_rows($result2);
                             if($resultCheck2 > 0){
                                 while($row2 = mysqli_fetch_assoc($result2)){
-                                echo  "ChildID: " . $row2['ChildID'] . " " . "Name: " . $row2['Fname'] . " " . $row2['Mname'] . " " . $row2['Lname'] . "<br>";
-                                echo  "Rides Bus: ";
                                 $childBusNumber = $row2['BusNum'];
-                                echo $row2['BusNum'] . "<br>";
-                                echo "Driven By:";
                                 $sql3 = "SELECT DriverLicenseNum FROM busses WHERE BusID = '$childBusNumber';";
                                 $result3 = mysqli_query($conn, $sql3);
                                 $resultCheck3 = mysqli_num_rows($result3);
@@ -67,15 +72,29 @@
                                         $result5 = mysqli_query($conn, $sql5);
                                         $resultCheck5 = mysqli_num_rows($result5);
                                         if($resultCheck5 > 0){
-                                            echo " ";
                                             $row5 = mysqli_fetch_assoc($result5);
-                                            echo $row5['Fname'] . " " . $row5['Mname'] . " " . $row5['Mname'] . "<br>";
                                         }   
                                     }
-                                    echo "<br>";
+                                    echo ' 
+                                    <tr>
+                                        <td>'.$row2['ChildID'].'</td>
+                                        <td>'.$row2['Fname'] . " " . $row2['Mname'] . " " . $row2['Lname'].'</td>
+                                        <td>'.$row2['BusNum'].'</td>
+                                        <td>'.$row5['Fname'] . " " . $row5['Mname'] . " " . $row5['Lname'].'</td>
+                                    </tr>';
+
+                                }else{
+                                    $noBus = "Child does not ride bus";
+                                    echo ' 
+                                    <tr>
+                                        <td>'.$row2['ChildID'].'</td>
+                                        <td>'.$row2['Fname'] . " " . $row2['Mname'] . " " . $row2['Lname'].'</td>
+                                        <td>'.$row2['BusNum'].'</td>
+                                        <td>'.$noBus.'</td>
+                                    </tr>';
                                 }
+                                
                                 }
-                                echo "<br><br><br>";
                             }
                         }
                         
