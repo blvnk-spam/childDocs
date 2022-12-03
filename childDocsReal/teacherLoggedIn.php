@@ -27,7 +27,8 @@
 
     <h1>childDocs</h1>
     <body bgcolor="B22B2B">
-            <!-- enter code here displaying the logged in parents info-->
+            <!-- enter code here displaying the logged in teachers info-->
+            <!-- Labib format maybe?-->
             <?php
 
             if(isset($_SESSION["teacherID"])){
@@ -44,6 +45,6 @@
     
             }
             ?> 
-            <!-- enter code here displaying the logged in parents childrens info, format as table if possible?-->
+            <!-- enter code here displaying the logged in teachers classroom info, format as table if possible?-->
     </body>
 </html>

@@ -28,8 +28,8 @@
     <h1>childDocs</h1>
     <body bgcolor="B22B2B">
             <!-- enter code here displaying the logged in admins info-->
+            <!-- Labib format maybe? -->
             <?php
-
             if(isset($_SESSION["adminID"])){
                 $adminID = $_SESSION["adminID"];
                 $sql = "SELECT * FROM staffs WHERE StaffID = '$adminID';";
