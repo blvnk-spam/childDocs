@@ -67,3 +67,22 @@
                 }
             }
         ?>
+        <?php
+            $sql = "SELECT staffID FROM admin;";
+            $result = mysqli_query($conn, $sql);
+            $resultCheck = mysqli_num_rows($result);
+
+            if ($resultCheck > 0){
+                while( $staffID = mysqli_fetch_assoc($result)){
+                    $staffIDString = $staffID['staffID'];
+                    $sql2 = "SELECT * FROM staffs WHERE staffID ='$staffIDString';";
+                    $adminList = mysqli_query($conn, $sql2);
+                    $resultCheck2 = mysqli_num_rows($adminList);
+                    if($resultCheck2 > 0){
+                        while($row = mysqli_fetch_assoc($adminList)){
+                            echo "id:" .  $row['StaffID'] . " - Name: " . $row['Fname'] . " " . $row['Mname']. " " . $row['Lname']. "<br>";
+                        }
+                    }
+                }
+            }
+        ?>
