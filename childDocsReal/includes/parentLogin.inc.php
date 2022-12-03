@@ -5,7 +5,7 @@
         require_once 'dbh.inc.php';
         require_once 'functions.inc.php';
 
-        if(emptyInputParentLogin($parentSSN) !== false){
+        if(emptyInputLogin($parentSSN) !== false){
             header("location: ../parentLogin.php?error=emptyinput");
             exit();
         }

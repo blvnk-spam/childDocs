@@ -5,7 +5,7 @@
         require_once 'dbh.inc.php';
         require_once 'functions.inc.php';
 
-        if(emptyInputTeacherLogin($teacherID) !== false){
+        if(emptyInputLogin($teacherID) !== false){
             header("location: ../teacherLogin.php?error=emptyinput");
             exit();
         }
