@@ -85,11 +85,12 @@
 
                                 }else{
                                     $noBus = "Child does not ride bus";
+                                    $noBusNum = "NA";
                                     echo ' 
                                     <tr>
                                         <td>'.$row2['ChildID'].'</td>
                                         <td>'.$row2['Fname'] . " " . $row2['Mname'] . " " . $row2['Lname'].'</td>
-                                        <td>'.$row2['BusNum'].'</td>
+                                        <td>'.$noBusNum.'</td>
                                         <td>'.$noBus.'</td>
                                     </tr>';
                                 }
