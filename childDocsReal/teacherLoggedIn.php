@@ -108,5 +108,8 @@
             }
             ?> 
             <!-- enter code here displaying the logged in teachers classroom info, format as table if possible?-->
+            <form action = "weeklyPlans.php" method="post">
+                <button type ="submit" formaction="weeklyPlans.php"> Weekly Plans </button>
+            </form>
     </body>
 </html>
