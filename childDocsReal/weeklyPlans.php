@@ -50,7 +50,7 @@
                     $author = $row['PlanAuthor'];
                     $authorID = $row['PlanAuthorID'];
                     $roomNum = $row['RoomNum'];
-                    $plans .= "<tr><td><a href ='viewPlan.php?planNum=".$planNum."'>".$planNum."</a><span class='postInfo'> Posted By: ".$author." For Room: ".$roomNum." Week: ".$weekNum."</span></td>";
+                    $plans .= "<tr><td><a href ='viewPlan.php?planNum=".$planNum."'>".$planNum."<br/></a><span class='postInfo'> Posted By: ".$author." For Room: ".$roomNum." Week: ".$weekNum."</span></td>";
                     $plans .= "<tr><td colspan='3'><hr /></td></tr>";
                 }
                 $plans .= "</table>";
@@ -59,6 +59,14 @@
                echo "No plans to display </br>";
                echo "<a href = 'teacherLoggedIn.php'>Return to Teacher page</a></br>";
             }
-        ?>         
+        ?>   
+        
+        <?php
+            if(isset($_GET["error"])){ 
+                if($_GET["error"] == "stmtfailed"){
+                    echo "<p>Something went wrong, please try again!</p>";
+                }    
+            }
+        ?>
     </body>
 </html>
