@@ -25,7 +25,11 @@
     
     </head>
 
-    <h1>childDocs</h1>
+    <h1>childDocs
+            <form action = "weeklyPlans.php" method="post">
+                <button type ="submit" formaction="weeklyPlans.php"> Weekly Plans </button>
+            </form>
+    </h1>
     <body bgcolor="B22B2B">
             <!-- enter code here displaying the logged in teachers info-->
             <!-- Labib format maybe?-->
