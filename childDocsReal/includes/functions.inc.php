@@ -9,6 +9,20 @@
         return $result;
     }
 
+    function emptyInputCreatePlan($weekNum, $authorName, $activities){
+        $result = false;
+        if(empty($weekNum)){
+            $result = true; 
+        }else if(empty($authorName)){
+            $result = true;
+        }else if(empty($activities)){
+            $result = true;
+        }else{
+            $result = false;
+        }
+        return $result;
+    }
+
     function parentSSNExists($conn, $parentSSN){
         $sql = "SELECT * FROM guardians WHERE GuardianSSN = ?;";
         $stmt = mysqli_stmt_init($conn);
