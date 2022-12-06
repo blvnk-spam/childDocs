@@ -1,14 +1,14 @@
 <?php
     function emptyInputLogin($inputLogin){
-        $result;
+        $result = false;
         if(empty($inputLogin)){
             $result = true;
         }else{
             $result = false;
         }
         return $result;
-    }    
-    
+    }
+
     function parentSSNExists($conn, $parentSSN){
         $sql = "SELECT * FROM guardians WHERE GuardianSSN = ?;";
         $stmt = mysqli_stmt_init($conn);
@@ -86,8 +86,8 @@
         header("location: ../adminLogin.php?error=none");
         exit();
     }
-    
-    
+
+
 
     function loginParent($conn, $parentSSN){
         $parentSSNExists = parentSSNExists($conn, $parentSSN);
