@@ -93,7 +93,7 @@ ALTER TABLE
 CREATE TABLE `weeklyplans`(
     `WeeklyPlanNum` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `WeekNum` VARCHAR(45) NOT NULL,
-    `Activities` VARCHAR(45) NULL,
+    `Activities` TEXT NULL,
     `PlanAuthor` VARCHAR(45) NOT NULL,
     `PlanAuthorID` INT NOT NULL,
     `RoomNum` INT NOT NULL
