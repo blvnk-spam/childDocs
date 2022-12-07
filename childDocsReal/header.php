@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang = "en">
     <head>
-        <title>Child Care</title>
+        <title>childDocs</title>
         <meta charset = "UTF-8">
         <meta name = "viewport" content = "width= devive-width, initial-scale=1.0">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com//bootstrap/4.5.2/css/bootstrap.min.css">
