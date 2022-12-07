@@ -1,43 +1,20 @@
-<!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <meta charset = "UTF-8">
-        <meta name = "viewport" content = "width= devive-width, initial-scale=1.0">
-        <title>Home Page</title>
-        <style>
-            .flex-parent{
-                display: flex;
-            }
-
-            .jc-center {
-                justify-content: center; 
-            }
-
-            .button {
-
-            }
-        </style>
+<?php
+    require "header.php"
+?>
     
-    </head>
-
-    <h1>childDocs</h1>
-    <body bgcolor="B22B2B">
-        
-        <div><h2>Please select what sort of user you wish to be</h2></div>
-        <div class="flex-parent jc-center">
+    <body>
+        <div><h2 class = "welcome">Welcome! Please select what sort of user you wish to be</h2></div>
             <form action = "parentLogin.php" method="post">
-                <button type ="submit" formaction="parentLogin.php"> Parent </button>
+                <button class = "btn1" type ="submit" formaction="parentLogin.php"> Parent </button>
             </form>
-        </div>
-        <div class="flex-parent jc-center">
+
             <form action = "teacherLogin.php" method="post">
-                <button type ="submit" formaction="teacherLogin.php"> Teacher </button>
+                <button class = "btn2" type ="submit" formaction="teacherLogin.php"> Teacher </button>
             </form>
-        </div>
-        <div class="flex-parent jc-center">
+
             <form action = "adminLogin.php" method="post">
-                <button type ="submit" formaction="adminLogin.php"> Admin </button>
+                <button class = "btn3" type ="submit" formaction="adminLogin.php"> Admin </button>
             </form>
-        </div>
+
     </body>
 </html>
