@@ -6,7 +6,7 @@
 
     <h1>
             <form action = "weeklyPlans.php" method="post">
-                <button type ="submit" formaction="weeklyPlans.php"> Weekly Plans </button>
+                <button class = "btn6" type ="submit" formaction="weeklyPlans.php"> Weekly Plans</button>
             </form>
     </h1>
     <body>
@@ -19,9 +19,13 @@
                 $sql = "SELECT * FROM staffs WHERE StaffID = '$teacherID';";
                 $result = mysqli_query($conn, $sql);
                 $resultCheck = mysqli_num_rows($result);
+
                 if ($resultCheck > 0){
                     while($row = mysqli_fetch_assoc($result)){
-                            echo "Welcome " . $row['Fname'] . " " . $row['Mname'] . " " . $row['Lname'] . "<br>";
+                            $tname = " " .$row['Fname'];
+                            $tname .= " " .$row['Mname'];
+                            $tname .= " " .$row['Lname'];
+                            echo " <h3 class = 'adminInfo'> Welcome $tname.</h3>";
                             $sql2 = "SELECT RoomNum FROM teachers WHERE StaffID = '$teacherID';";
                             $result2 = mysqli_query($conn, $sql2);
                             $resultCheck2 = mysqli_num_rows($result2);
@@ -29,9 +33,9 @@
                                 while($row2 = mysqli_fetch_assoc($result2)){
                                     $roomNum = $row2['RoomNum'];
                                     echo "Displaying information for classroom " . $row2['RoomNum'] . ":<br>"; 
-                                    echo '<table>
-                                            <tr>
-                                                <th>ChildID</th>
+                                    echo '<table style = "width: 50%">
+                                            <tr style = "background-color: #dddddd">
+                                                <th >ChildID</th>
                                                 <th>Name</th>
                                                 <th>Bus Number</th>
                                                 <th>Bus Driver</th>
@@ -61,24 +65,39 @@
                                                         $row6 = mysqli_fetch_assoc($result6);
                                                     }   
                                                 }
-                                                echo ' 
-                                                <tr>
-                                                    <td>'.$row3['ChildID'].'</td>
-                                                    <td>'.$row3['Fname'] . " " . $row3['Mname'] . " " . $row3['Lname'].'</td>
-                                                    <td>'.$row3['BusNum'].'</td>
-                                                    <td>'.$row6['Fname'] . " " . $row6['Mname'] . " " . $row6['Lname'].'</td>
-                                                </tr>';
+                                                
+                                                if($row3['BusNum'] !== "0"){
+                                                    echo ' 
+                                                    <tr style="text-align: center">
+                                                        <td>'.$row3['ChildID'].'</td>
+                                                        <td>'.$row3['Fname'] . " " . $row3['Mname'] . " " . $row3['Lname'].'</td>
+                                                        <td>'.$row3['BusNum'].'</td>
+                                                        <td>'.$row6['Fname'] . " " . $row6['Mname'] . " " . $row6['Lname'].'</td>
+                                                    </tr>';
+                                                }else{
+                                                    $noBus = "Child does not ride bus";
+                                                    $noBusNum = "NA";
+                                                    echo ' 
+                                                    <tr style="text-align: center">
+                                                        <td>'.$row3['ChildID'].'</td>
+                                                        <td>'.$row3['Fname'] . " " . $row3['Mname'] . " " . $row3['Lname'].'</td>
+                                                        <td>'.$noBusNum.'</td>
+                                                        <td>'.$noBus.'</td>
+                                                    </tr>';
+                                                }
             
                                             }else{
                                                 $noBus = "Child does not ride bus";
                                                 $noBusNum = "NA";
                                                 echo ' 
-                                                <tr>
+                                                <tr style="text-align: center">
                                                     <td>'.$row3['ChildID'].'</td>
                                                     <td>'.$row3['Fname'] . " " . $row3['Mname'] . " " . $row3['Lname'].'</td>
                                                     <td>'.$noBusNum.'</td>
                                                     <td>'.$noBus.'</td>
                                                 </tr>';
+                                            }
+            
                                             }
                                             
                                             }
@@ -88,7 +107,6 @@
                             }
                     }
                 }
-            }
             ?> 
             <!-- enter code here displaying the logged in teachers classroom info, format as table if possible?-->
     </body>

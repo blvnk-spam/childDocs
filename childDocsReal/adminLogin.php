@@ -3,7 +3,6 @@
     require "header.php"
 ?>
 
-    <h1>childDocs</h1>
     <body>
         <div><h2>Hello! Please login.</h2></div>
         <!--Add code here to hopeufully poll user for an Employee id, check if ID is in admins list, if is succesful login, else print "Unable to login; Incorrect Credentials top screen--> 

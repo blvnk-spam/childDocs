@@ -16,8 +16,12 @@
 
                 if ($resultCheck > 0){
                     while($row = mysqli_fetch_assoc($result)){
-                        echo "Welcome " . $row['Fname'] . " " . $row['Mname'] . " " . $row['Lname'] . "<br /><br />";
-                    }
+                        $adname = " " .$row['Fname'];
+                        $adname .= " " .$row['Mname'];
+                        $adname .= " " .$row['Lname'];
+                        echo " <h3 class = 'adminInfo'> Welcome $adname.</h3>";
+                    }   
+                    
                 }           
 
             }
@@ -42,14 +46,14 @@
                     $name .= " " .$row['Lname'];
                     $roomNum = $row['RoomNum'];
                     $guardianSSN = $row['GuardianSSN'];
-                    $childs .= "<tr><td><a href ='viewChild.php?childID=".$childID."'>".$childID."</a><br><span class='childInfo'>".$name."</span></td><td align ='center'>".$roomNum."</td><td align ='center'>".$guardianSSN."</td></tr>";
+                    $childs .= "<tr><td><a class = 'test' href ='viewChild.php?childID=".$childID."'>".$childID."</a><br><span class='childInfo'>".$name."</span></td><td align ='center'>".$roomNum."</td><td align ='center'>".$guardianSSN."</td></tr>";
                     $childs .= "<tr><td colspan='3'><hr /></td></tr>";
                 }
                 $childs .= "</table>";
                 echo $childs;
             }else{
                echo "No children to display </br>";
-               echo "<a href = 'index.php'>Return to index page</a></br>";
+               echo "<a href = 'index.php'><button class = 'btn7'>Return to index page</button></a>";
             }
         ?>
             <!-- enter code here displaying the logged in admins child edit info, format as table if possible?-->
