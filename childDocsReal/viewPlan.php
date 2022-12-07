@@ -33,13 +33,14 @@
                     $resultData = mysqli_stmt_get_result($stmt);
 
                     if($row = mysqli_fetch_assoc($resultData)){
-                        echo "You selected a weekly plan for room: " . $row['RoomNum'] .  "<br />For week:" . $row['WeekNum'] . "<br /> Written by alias: " . $row['PlanAuthor'] . " Staff ID: " . $row['PlanAuthorID'];
+                        echo "You selected a weekly plan for room: " . $row['RoomNum'] .  "<br />For week: " . $row['WeekNum'] . "<br/> Written by alias: " . $row['PlanAuthor'] . " <br/>Staff ID: " . $row['PlanAuthorID'];
                         echo "<hr />";
                         echo $row['Activities'];
                         echo "<br />";
                     }
 
-                echo "<a href = 'teacherLoggedIn.php'>Return to Teacher page</a></br>";
+                echo "<a href = 'teacherLoggedIn.php'><button class = 'btn9'>Return to Teacher page</button></a></br>";
+                
             ?>
 
             

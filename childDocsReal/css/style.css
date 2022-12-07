@@ -139,6 +139,47 @@ nav {
     font-weight: bold;
     font-size: 12px;
     transition: 0.4s;
+    margin-left: 1%;
+    margin-bottom: 10px;
+}
+
+.btn9{
+    border: none;
+    background: #ea1538;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    transition: 0.4s;
+    margin-top: 1%;
+    margin-left: 0;
+    margin-bottom: 10px;
+}
+
+.btn10{
+    border: none;
+    background: #ea1538;
+    padding: 5px 8px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    transition: 0.4s;
+    margin-left: 0;
+    margin-bottom: 10px;
+}
+
+.btn11{
+    border: none;
+    background: #ea1538;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    transition: 0.4s;
+    margin-top: 0;
     margin-left: 0;
     margin-bottom: 10px;
 }
@@ -164,6 +205,14 @@ nav {
     cursor: pointer;
 }
 
+.btn9:hover, .btn11:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.btn10:hover{
+    cursor: pointer;
+}
 
 .test {
     text-decoration: none;

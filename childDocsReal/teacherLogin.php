@@ -9,7 +9,7 @@
         <!--Once logged in redirect to teacherID=# page?-->
         <form action ="includes/teacherLogin.inc.php" method = "post">
             <input type = "text" name = "employeeID" placeholder="Enter your employee ID..."> 
-            <button type="submit" name="submit">Login</button>
+            <button class = "btn10" type="submit" name="submit">Login</button>
         </form>
         <?php
             if(isset($_GET["error"])){

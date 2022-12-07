@@ -8,15 +8,14 @@
         header("location: index.php");
         exit();
     }else{
-        echo "<p>You are logged in as employee ID: ".$_SESSION["adminID"]."";
+        echo "<p>You are logged in as employee ID: ".$_SESSION["adminID"]."</br>";
     }
     $aid = $_SESSION["adminID"];
 ?>
 
 
     <body>
-        
-        <div><h4>Hello!</h4></div>
+        <br>
         <?php
             $childID = $_GET["childID"];
             echo "You are viewing child: " . $childID;
@@ -35,7 +34,7 @@
             $resultData = mysqli_stmt_get_result($stmt);
             $childs = "";
             if($row = mysqli_fetch_assoc($resultData)){
-                $childs .= "<table width = '100%' style = 'border-sollapse:collapse;'>";
+                $childs .= "<table width = '50%' style = 'border-sollapse:collapse;'>";
                 $childs .= "<tr style='background-color: #dddddd;'><td>ChildID</td><td width ='65' align='center'>Room Number</td><td width='65' align='center'>Guardian SSN</td><td width='65' align='center'>Bus Num</td></tr>";
                 $childs .= "<tr><td colspan='4'><hr /></td></tr>";
                     $childID = $row['ChildID'];
@@ -55,15 +54,16 @@
         ?>
 
             <form action="includes/updateChild.inc.php" method ="post">
-                <p>Enter a valid room num:</p>
-                <input type="text" name="roomNum" size="98" maxlength="2" />
-                <p>Enter a valid Bus Num</p>
-                <input type="text" name="busNum" size="98" maxlength="150" /> 
+                <p>Enter a valid Room number:</p>
+                <input type="text" name="roomNum" size="30" maxlength="2" />
+                <p>Enter a valid Bus number:</p>
+                <input type="text" name="busNum" size="30" maxlength="30" /> 
                 <br /><br />
                 <input type="hidden" name="childID" value = "<?php echo $childID; ?>" />
                 <button class  = "btn4" type="submit" name="submit">Update Info</button>
             </form>
 
+            <a href = 'adminLoggedIn.php'><button class = "btn11">Return to Admin page</button></a>
 
             <?php
             if(isset($_GET["error"])){
@@ -76,10 +76,6 @@
                 }
             }
             ?>
-
-            <a href = 'adminLoggedIn.php'>
-            <button class = "btn5">Return to Admin page</button>
-            </a>
             
     </body>
 </html>

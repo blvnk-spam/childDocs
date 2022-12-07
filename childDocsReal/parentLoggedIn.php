@@ -16,17 +16,21 @@
                     $resultCheck = mysqli_num_rows($result);
     
 
-                    echo '<table>
-                        <tr>
-                            <th>ChildID</th>
-                            <th>Name</th>
-                            <th>Bus Number</th>
-                            <th>Bus Driver</th>
-                        </tr>';
+                    echo '<table style = "width: 50%">
+                                            <tr style = "background-color: #dddddd">
+                                                <th >ChildID</th>
+                                                <th>Name</th>
+                                                <th>Bus Number</th>
+                                                <th>Bus Driver</th>
+                                            </tr>';
 
                     if ($resultCheck > 0){
                         while($row = mysqli_fetch_assoc($result)){
-                            echo "Welcome " . $row['Fname'] . " " . $row['Mname'] . " " . $row['Lname'] . "<br><br> Your children are as follows: <br>";
+                            $pname = " " .$row['Fname'];
+                            $pname .= " " .$row['Mname'];
+                            $pname .= " " .$row['Lname'];
+                            echo " <h3 class = 'adminInfo'> Welcome $pname!</h3>";
+                            echo " Your children are as follows: <br>"; 
                             $guardianIDString = $row['GuardianSSN'];
                             $sql2 = "SELECT * FROM child WHERE GuardianSSN = '$guardianIDString';";
                             $result2 = mysqli_query($conn, $sql2);
@@ -55,7 +59,7 @@
                                     }
                                     if($row2['BusNum'] !== "0"){
                                         echo ' 
-                                        <tr>
+                                        <tr style="text-align: center">
                                             <td>'.$row2['ChildID'].'</td>
                                             <td>'.$row2['Fname'] . " " . $row2['Mname'] . " " . $row2['Lname'].'</td>
                                             <td>'.$row2['BusNum'].'</td>
@@ -65,7 +69,7 @@
                                         $noBus = "Child does not ride bus";
                                         $noBusNum = "NA";
                                         echo ' 
-                                        <tr>
+                                        <tr style="text-align: center">
                                             <td>'.$row2['ChildID'].'</td>
                                             <td>'.$row2['Fname'] . " " . $row2['Mname'] . " " . $row2['Lname'].'</td>
                                             <td>'.$noBusNum.'</td>
@@ -77,7 +81,7 @@
                                     $noBus = "Child does not ride bus";
                                     $noBusNum = "NA";
                                     echo ' 
-                                    <tr>
+                                    <tr style="text-align: center">
                                         <td>'.$row2['ChildID'].'</td>
                                         <td>'.$row2['Fname'] . " " . $row2['Mname'] . " " . $row2['Lname'].'</td>
                                         <td>'.$noBusNum.'</td>

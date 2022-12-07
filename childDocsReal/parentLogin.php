@@ -9,7 +9,7 @@
         <!--Once logged in redirect to parentID=# page--> 
         <form action ="includes/parentLogin.inc.php" method = "post">
             <input type = "text" name = "uniqueID" placeholder="Enter your ssn..."> 
-            <button type="submit" name="submit">Login</button>
+            <button class = "btn10" type="submit" name="submit">Login</button>
         </form>
         <?php
             if(isset($_GET["error"])){

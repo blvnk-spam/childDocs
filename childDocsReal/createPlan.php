@@ -26,7 +26,7 @@
                 <textarea name="activities" rows="5" cols="75"></textarea>
                 <br /><br />
                 <input type="hidden" name="tid" value = "<?php echo $tid; ?>" />
-                <button type="submit" name="submit">Submit Plan</button>
+                <button class = "btn6" type="submit" name="submit">Submit Plan</button>
             </form>
 
             <?php

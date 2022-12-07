@@ -25,7 +25,7 @@
                             $tname = " " .$row['Fname'];
                             $tname .= " " .$row['Mname'];
                             $tname .= " " .$row['Lname'];
-                            echo " <h3 class = 'adminInfo'> Welcome $tname.</h3>";
+                            echo " <h3 class = 'adminInfo'> Welcome $tname!</h3>";
                             $sql2 = "SELECT RoomNum FROM teachers WHERE StaffID = '$teacherID';";
                             $result2 = mysqli_query($conn, $sql2);
                             $resultCheck2 = mysqli_num_rows($result2);

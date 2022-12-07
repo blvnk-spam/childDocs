@@ -36,9 +36,9 @@
             $sql = "SELECT * FROM child ORDER BY ChildID;";
             $res = mysqli_query($conn, $sql);
             if(mysqli_num_rows($res) > 0){
-                $childs .= "<table width = '100%' style = 'border-sollapse:collapse;'>";
-                $childs .= "<tr style='background-color: #dddddd;'><td>ChildID</td><td width ='65' align='center'>Room Number</td><td width='65' align='center'>Guardian SSN</td></tr>";
-                $childs .= "<tr><td colspan='3'><hr /></td></tr>";
+                $childs .= "<table width = '50%' style = 'border-sollapse:collapse;'>";
+                $childs .= "<tr style='background-color: #dddddd;;'><td width='15' align='center'>ChildID</td><td width='98' align='center'>Child Name</td><td width ='65' align='center'>Room Number</td><td width='65' align='center'>Guardian SSN</td></tr>";
+                $childs .= "<tr><td colspan='4'><hr /></td></tr>";
                 while($row = mysqli_fetch_assoc($res)){
                     $childID = $row['ChildID'];
                     $name = $row['Fname'];
@@ -46,8 +46,8 @@
                     $name .= " " .$row['Lname'];
                     $roomNum = $row['RoomNum'];
                     $guardianSSN = $row['GuardianSSN'];
-                    $childs .= "<tr><td><a class = 'test' href ='viewChild.php?childID=".$childID."'>".$childID."</a><br><span class='childInfo'>".$name."</span></td><td align ='center'>".$roomNum."</td><td align ='center'>".$guardianSSN."</td></tr>";
-                    $childs .= "<tr><td colspan='3'><hr /></td></tr>";
+                    $childs .= "<tr><td align ='center'>".$childID."</td><td align ='center'><a class = 'test' href ='viewChild.php?childID=".$childID."'>".$name."</a></td><td align ='center'>".$roomNum."</td><td align ='center'>".$guardianSSN."</td></tr>";
+                    $childs .= "<tr><td colspan='4'><hr /></td></tr>";
                 }
                 $childs .= "</table>";
                 echo $childs;
