@@ -38,7 +38,7 @@
 
                 if ($resultCheck > 0){
                     while($row = mysqli_fetch_assoc($result)){
-                        echo "Welcome " . $row['Fname'] . " " . $row['Mname'] . " " . $row['Lname'] . "<br>";
+                        echo "Welcome " . $row['Fname'] . " " . $row['Mname'] . " " . $row['Lname'] . "<br /><br />";
                     }
                 }           
 
