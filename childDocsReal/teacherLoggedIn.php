@@ -82,13 +82,25 @@
                                                         $row6 = mysqli_fetch_assoc($result6);
                                                     }   
                                                 }
-                                                echo ' 
-                                                <tr>
-                                                    <td>'.$row3['ChildID'].'</td>
-                                                    <td>'.$row3['Fname'] . " " . $row3['Mname'] . " " . $row3['Lname'].'</td>
-                                                    <td>'.$row3['BusNum'].'</td>
-                                                    <td>'.$row6['Fname'] . " " . $row6['Mname'] . " " . $row6['Lname'].'</td>
-                                                </tr>';
+                                                if($row3['BusNum'] !== "0"){
+                                                    echo ' 
+                                                    <tr>
+                                                        <td>'.$row3['ChildID'].'</td>
+                                                        <td>'.$row3['Fname'] . " " . $row3['Mname'] . " " . $row3['Lname'].'</td>
+                                                        <td>'.$row3['BusNum'].'</td>
+                                                        <td>'.$row6['Fname'] . " " . $row6['Mname'] . " " . $row6['Lname'].'</td>
+                                                    </tr>';
+                                                }else{
+                                                    $noBus = "Child does not ride bus";
+                                                    $noBusNum = "NA";
+                                                    echo ' 
+                                                    <tr>
+                                                        <td>'.$row3['ChildID'].'</td>
+                                                        <td>'.$row3['Fname'] . " " . $row3['Mname'] . " " . $row3['Lname'].'</td>
+                                                        <td>'.$noBusNum.'</td>
+                                                        <td>'.$noBus.'</td>
+                                                    </tr>';
+                                                }
             
                                             }else{
                                                 $noBus = "Child does not ride bus";
