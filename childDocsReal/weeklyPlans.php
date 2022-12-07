@@ -42,7 +42,7 @@
             $res = mysqli_query($conn, $sql);
             if(mysqli_num_rows($res) > 0){
                 $plans .= "<table width = '100%' style = 'border-sollapse:collapse;'>";
-                $plans .= "<tr><td colspan = '3'><a href ='teacherLoggedIn.php'> Return to Teacher page</a><hr /></td></tr>";
+                $plans .= "<tr><td colspan = '3'><a href ='teacherLoggedIn.php'>Return to Teacher page</a><hr /></td></tr>";
                 $plans .= "<tr style='background-color: #dddddd;'><td>Plan Num</td>";
                 while($row = mysqli_fetch_assoc($res)){
                     $planNum = $row['WeeklyPlanNum'];
