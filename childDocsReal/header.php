@@ -12,7 +12,7 @@
         <header>
             <div class= "wrapper">
                 <nav>
-                    <h2 class= "logo"> CHILD<span class = "logospan">CARE</h2>
+                    <h2 class= "logo"> child<span class = "logospan">Docs</h2>
                 </nav>
             </div>
         </header>
