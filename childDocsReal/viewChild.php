@@ -35,8 +35,8 @@
             $childs = "";
             if($row = mysqli_fetch_assoc($resultData)){
                 $childs .= "<table width = '50%' style = 'border-sollapse:collapse;'>";
-                $childs .= "<tr style='background-color: #dddddd;'><td>ChildID</td><td width ='65' align='center'>Room Number</td><td width='65' align='center'>Guardian SSN</td><td width='65' align='center'>Bus Num</td></tr>";
-                $childs .= "<tr><td colspan='4'><hr /></td></tr>";
+                $childs .= "<tr style='background-color: #dddddd;'><td width='65' align='center'>ChildID</td><td width='65' align='center'>Child Name</td><td width ='65' align='center'>Room Number</td><td width='65' align='center'>Guardian SSN</td><td width='65' align='center'>Bus Num</td></tr>";
+                $childs .= "<tr><td colspan='5'><hr /></td></tr>";
                     $childID = $row['ChildID'];
                     $name = $row['Fname'];
                     $name .= " " .$row['Mname'];
@@ -44,8 +44,8 @@
                     $roomNum = $row['RoomNum'];
                     $guardianSSN = $row['GuardianSSN'];
                     $busNum = $row['BusNum'];
-                    $childs .= "<tr><td>".$childID."<br><span class='childInfo'>".$name."</span></td><td align ='center'>".$roomNum."</td><td align ='center'>".$guardianSSN."</td><td align ='center'>".$busNum."</td></tr>";
-                    $childs .= "<tr><td colspan='4'><hr /></td></tr>";
+                    $childs .= "<tr><td align ='center'>".$childID."</td><td align ='center'>".$name."</td><td align ='center'>".$roomNum."</td><td align ='center'>".$guardianSSN."</td><td align ='center'>".$busNum."</td></tr>";
+                    $childs .= "<tr><td colspan='5'><hr /></td></tr>";
                 $childs .= "</table>";
                 echo $childs;
             }
