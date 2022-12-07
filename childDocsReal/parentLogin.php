@@ -25,7 +25,7 @@
     </head>
 
     <h1>childDocs</h1>
-    <body bgcolor="FBB917">
+    <body bgcolor="B22B2B">
         <div><h2>Succesfully selected parent as user type; login!</h2></div>
         <!--Add code here to hopeufully poll user for an parents SSN, check if SSN is in parents table, if is succesful login, else print "Unable to login; Incorrect Credentials" to screen-->
         <!--Once logged in redirect to parentID=# page--> 

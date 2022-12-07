@@ -75,13 +75,25 @@
                                             $row5 = mysqli_fetch_assoc($result5);
                                         }   
                                     }
-                                    echo ' 
-                                    <tr>
-                                        <td>'.$row2['ChildID'].'</td>
-                                        <td>'.$row2['Fname'] . " " . $row2['Mname'] . " " . $row2['Lname'].'</td>
-                                        <td>'.$row2['BusNum'].'</td>
-                                        <td>'.$row5['Fname'] . " " . $row5['Mname'] . " " . $row5['Lname'].'</td>
-                                    </tr>';
+                                    if($row2['BusNum'] !== "0"){
+                                        echo ' 
+                                        <tr>
+                                            <td>'.$row2['ChildID'].'</td>
+                                            <td>'.$row2['Fname'] . " " . $row2['Mname'] . " " . $row2['Lname'].'</td>
+                                            <td>'.$row2['BusNum'].'</td>
+                                            <td>'.$row5['Fname'] . " " . $row5['Mname'] . " " . $row5['Lname'].'</td>
+                                        </tr>';
+                                    }else{
+                                        $noBus = "Child does not ride bus";
+                                        $noBusNum = "NA";
+                                        echo ' 
+                                        <tr>
+                                            <td>'.$row2['ChildID'].'</td>
+                                            <td>'.$row2['Fname'] . " " . $row2['Mname'] . " " . $row2['Lname'].'</td>
+                                            <td>'.$noBusNum.'</td>
+                                            <td>'.$noBus.'</td>
+                                        </tr>';
+                                    }
 
                                 }else{
                                     $noBus = "Child does not ride bus";
